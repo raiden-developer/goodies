@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG stack preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as stack SVGs, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-book-dims { width: 59px; height: 60px; }
+	.svg-check-dims { width: 13px; height: 9px; }
+	.svg-chips-dims { width: 50px; height: 50px; }
+	.svg-contact-phone-dims { width: 59px; height: 60px; }
+	.svg-delete-product-dims { width: 20px; height: 20px; }
+	.svg-discount-slider-arrow-dims { width: 16px; height: 30px; }
+	.svg-dot-leaders-bg-dims { width: 9px; height: 5px; }
+	.svg-drinks-dims { width: 50px; height: 50px; }
+	.svg-envelope-dims { width: 30px; height: 30px; }
+	.svg-envelope-2-dims { width: 59px; height: 46px; }
+	.svg-geo-dims { width: 49px; height: 60px; }
+	.svg-gift-boxes-dims { width: 48px; height: 50px; }
+	.svg-header-menu-triangle-dims { width: 36px; height: 31px; }
+	.svg-help-dims { width: 22px; height: 27px; }
+	.svg-instagram-dims { width: 35px; height: 35px; }
+	.svg-phone-call-dims { width: 30px; height: 30px; }
+	.svg-product-arrow-right-dims { width: 16px; height: 12px; }
+	.svg-product-check-dims { width: 15px; height: 15px; }
+	.svg-product-heart-dims { width: 39px; height: 35px; }
+	.svg-public-dims { width: 26px; height: 27px; }
+	.svg-search-header-dims { width: 21px; height: 21px; }
+	.svg-shopping-cart-dims { width: 52px; height: 52px; }
+	.svg-sweets-dims { width: 50px; height: 50px; }
+	.svg-t-arrow-down-dims { width: 15px; height: 9px; }
+	.svg-telegram-dims { width: 36px; height: 35px; }
+	.svg-viber-dims { width: 34px; height: 35px; }
+	.svg-whatsapp-dims { width: 36px; height: 35px; }
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG stack preview</h1>
+			<p>This preview features an SVG stack. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-fragment" target="_blank">support SVG fragment identifiers</a> for SVG stacks to work.</li>
+				<li>Support for SVG fragment identifiers hasn't always been that decent. For older browsers you will have to use some prolyfill like <a href="https://github.com/preciousforever/SVG-Stacker/blob/master/fixsvgstack.jquery.js" target="_blank">fixsvgstack.jquery.js</a>.</li>
+			</ul>
+		</header>
+		<section>
+			
+<!--
+	
+SVG stack
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) to reference certain portions of the
+external sprite. By default, all shapes inside the sprite are hidden by CSS. The `:target` pseudo
+selector is used to show the very shape that is referenced by the fragment identifier.  
+
+-->
+
+			<ul>
+				
+				<li title="book">
+					<div class="icon-box">
+						
+						<!-- book -->
+						<img src="../icons/icons.svg#book" class="svg-book-dims" alt="book"/>
+						
+					</div>
+					<h2>book</h2>
+				</li>
+				<li title="check">
+					<div class="icon-box">
+						
+						<!-- check -->
+						<img src="../icons/icons.svg#check" class="svg-check-dims" alt="check"/>
+						
+					</div>
+					<h2>check</h2>
+				</li>
+				<li title="chips">
+					<div class="icon-box">
+						
+						<!-- chips -->
+						<img src="../icons/icons.svg#chips" class="svg-chips-dims" alt="chips"/>
+						
+					</div>
+					<h2>chips</h2>
+				</li>
+				<li title="contact-phone">
+					<div class="icon-box">
+						
+						<!-- contact-phone -->
+						<img src="../icons/icons.svg#contact-phone" class="svg-contact-phone-dims" alt="contact-phone"/>
+						
+					</div>
+					<h2>contact-phone</h2>
+				</li>
+				<li title="delete-product">
+					<div class="icon-box">
+						
+						<!-- delete-product -->
+						<img src="../icons/icons.svg#delete-product" class="svg-delete-product-dims" alt="delete-product"/>
+						
+					</div>
+					<h2>delete-product</h2>
+				</li>
+				<li title="discount-slider-arrow">
+					<div class="icon-box">
+						
+						<!-- discount-slider-arrow -->
+						<img src="../icons/icons.svg#discount-slider-arrow" class="svg-discount-slider-arrow-dims" alt="discount-slider-arrow"/>
+						
+					</div>
+					<h2>discount-slider-arrow</h2>
+				</li>
+				<li title="dot-leaders-bg">
+					<div class="icon-box">
+						
+						<!-- dot-leaders-bg -->
+						<img src="../icons/icons.svg#dot-leaders-bg" class="svg-dot-leaders-bg-dims" alt="dot-leaders-bg"/>
+						
+					</div>
+					<h2>dot-leaders-bg</h2>
+				</li>
+				<li title="drinks">
+					<div class="icon-box">
+						
+						<!-- drinks -->
+						<img src="../icons/icons.svg#drinks" class="svg-drinks-dims" alt="drinks"/>
+						
+					</div>
+					<h2>drinks</h2>
+				</li>
+				<li title="envelope">
+					<div class="icon-box">
+						
+						<!-- envelope -->
+						<img src="../icons/icons.svg#envelope" class="svg-envelope-dims" alt="envelope"/>
+						
+					</div>
+					<h2>envelope</h2>
+				</li>
+				<li title="envelope-2">
+					<div class="icon-box">
+						
+						<!-- envelope-2 -->
+						<img src="../icons/icons.svg#envelope-2" class="svg-envelope-2-dims" alt="envelope-2"/>
+						
+					</div>
+					<h2>envelope-2</h2>
+				</li>
+				<li title="geo">
+					<div class="icon-box">
+						
+						<!-- geo -->
+						<img src="../icons/icons.svg#geo" class="svg-geo-dims" alt="geo"/>
+						
+					</div>
+					<h2>geo</h2>
+				</li>
+				<li title="gift-boxes">
+					<div class="icon-box">
+						
+						<!-- gift-boxes -->
+						<img src="../icons/icons.svg#gift-boxes" class="svg-gift-boxes-dims" alt="gift-boxes"/>
+						
+					</div>
+					<h2>gift-boxes</h2>
+				</li>
+				<li title="header-menu-triangle">
+					<div class="icon-box">
+						
+						<!-- header-menu-triangle -->
+						<img src="../icons/icons.svg#header-menu-triangle" class="svg-header-menu-triangle-dims" alt="header-menu-triangle"/>
+						
+					</div>
+					<h2>header-menu-triangle</h2>
+				</li>
+				<li title="help">
+					<div class="icon-box">
+						
+						<!-- help -->
+						<img src="../icons/icons.svg#help" class="svg-help-dims" alt="help"/>
+						
+					</div>
+					<h2>help</h2>
+				</li>
+				<li title="instagram">
+					<div class="icon-box">
+						
+						<!-- instagram -->
+						<img src="../icons/icons.svg#instagram" class="svg-instagram-dims" alt="instagram"/>
+						
+					</div>
+					<h2>instagram</h2>
+				</li>
+				<li title="phone-call">
+					<div class="icon-box">
+						
+						<!-- phone-call -->
+						<img src="../icons/icons.svg#phone-call" class="svg-phone-call-dims" alt="phone-call"/>
+						
+					</div>
+					<h2>phone-call</h2>
+				</li>
+				<li title="product-arrow-right">
+					<div class="icon-box">
+						
+						<!-- product-arrow-right -->
+						<img src="../icons/icons.svg#product-arrow-right" class="svg-product-arrow-right-dims" alt="product-arrow-right"/>
+						
+					</div>
+					<h2>product-arrow-right</h2>
+				</li>
+				<li title="product-check">
+					<div class="icon-box">
+						
+						<!-- product-check -->
+						<img src="../icons/icons.svg#product-check" class="svg-product-check-dims" alt="product-check"/>
+						
+					</div>
+					<h2>product-check</h2>
+				</li>
+				<li title="product-heart">
+					<div class="icon-box">
+						
+						<!-- product-heart -->
+						<img src="../icons/icons.svg#product-heart" class="svg-product-heart-dims" alt="product-heart"/>
+						
+					</div>
+					<h2>product-heart</h2>
+				</li>
+				<li title="public">
+					<div class="icon-box">
+						
+						<!-- public -->
+						<img src="../icons/icons.svg#public" class="svg-public-dims" alt="public"/>
+						
+					</div>
+					<h2>public</h2>
+				</li>
+				<li title="search-header">
+					<div class="icon-box">
+						
+						<!-- search-header -->
+						<img src="../icons/icons.svg#search-header" class="svg-search-header-dims" alt="search-header"/>
+						
+					</div>
+					<h2>search-header</h2>
+				</li>
+				<li title="shopping-cart">
+					<div class="icon-box">
+						
+						<!-- shopping-cart -->
+						<img src="../icons/icons.svg#shopping-cart" class="svg-shopping-cart-dims" alt="shopping-cart"/>
+						
+					</div>
+					<h2>shopping-cart</h2>
+				</li>
+				<li title="sweets">
+					<div class="icon-box">
+						
+						<!-- sweets -->
+						<img src="../icons/icons.svg#sweets" class="svg-sweets-dims" alt="sweets"/>
+						
+					</div>
+					<h2>sweets</h2>
+				</li>
+				<li title="t-arrow-down">
+					<div class="icon-box">
+						
+						<!-- t-arrow-down -->
+						<img src="../icons/icons.svg#t-arrow-down" class="svg-t-arrow-down-dims" alt="t-arrow-down"/>
+						
+					</div>
+					<h2>t-arrow-down</h2>
+				</li>
+				<li title="telegram">
+					<div class="icon-box">
+						
+						<!-- telegram -->
+						<img src="../icons/icons.svg#telegram" class="svg-telegram-dims" alt="telegram"/>
+						
+					</div>
+					<h2>telegram</h2>
+				</li>
+				<li title="viber">
+					<div class="icon-box">
+						
+						<!-- viber -->
+						<img src="../icons/icons.svg#viber" class="svg-viber-dims" alt="viber"/>
+						
+					</div>
+					<h2>viber</h2>
+				</li>
+				<li title="whatsapp">
+					<div class="icon-box">
+						
+						<!-- whatsapp -->
+						<img src="../icons/icons.svg#whatsapp" class="svg-whatsapp-dims" alt="whatsapp"/>
+						
+					</div>
+					<h2>whatsapp</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Fri, 03 Jul 2020 11:12:15 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
